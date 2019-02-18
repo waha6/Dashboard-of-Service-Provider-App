@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import firebase from "./Config/firebase";
 import Login from "./Component/Login";
+import DashBoard from "./Component/DashBoard";
 import "./styles.css";
 import "semantic-ui-css/semantic.min.css";
 
@@ -26,7 +27,11 @@ class App extends Component {
   }
   render() {
     const { page } = this.state;
-    return <div className="App">{page == "login" && <Login />}</div>;
+    return (
+      <div className="App">
+        {(page == "login" && <Login />) || <DashBoard />}
+      </div>
+    );
   }
 }
 
